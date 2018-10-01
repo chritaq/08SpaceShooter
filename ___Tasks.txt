@@ -6,6 +6,7 @@ Tasks:
 
 
 Christopher: 
+- Gör player movement
 
 Petter
 
