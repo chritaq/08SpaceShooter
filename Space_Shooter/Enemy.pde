@@ -3,6 +3,7 @@ PVector velocity;
 int firingRate;
 int nextBullet;
 float size;
+boolean alive = true;
 
 class Enemy{
   Enemy(float posX, float posY, float velX, float velY) {
@@ -19,8 +20,12 @@ class Enemy{
   }
   
   void update() {
-    moveEnemy();
-    shoot();
+    if(alive) {
+      moveEnemy();
+      shoot();
+      destroy();
+    }
+    
   }
   
   void moveEnemy() {
@@ -33,13 +38,15 @@ class Enemy{
     nextBullet++;
     if(nextBullet == firingRate) {
       nextBullet = 0;
-      print("Enemy is firing");
+      //print("Enemy is firing");
     }
-    
   }
   
   void destroy() {
-  
+    //add if collision happens
+    //if(true) {
+    //  alive = false;
+    //}
   }
   
 }

@@ -6,6 +6,11 @@ class EnemyManager {
   }
   
   void update() {
+    updateEnemies();
+  }
+  
+  void updateEnemies() {
     enemy1.update();
   }
+  
 }
