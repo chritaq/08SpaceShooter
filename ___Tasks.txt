@@ -8,6 +8,8 @@ Tasks:
 Christopher: 
 - Gör player movement
 
-Petter
+Petter:
+
+-Awesome
 
 Amie:
