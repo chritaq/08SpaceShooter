@@ -7,6 +7,7 @@ Tasks:
 
 Christopher: 
 - Gör player movement
+- Gör annat också
 
 Petter:
 
