@@ -20,8 +20,3 @@ class Bullet {
 
 }
 
-
-/*void draw() {
-	point(position.x, position.y);
-	bullet.update();
-}*/
