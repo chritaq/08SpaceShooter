@@ -1,6 +1,7 @@
 PVector position;
 PVector velocity;
-float firingRate;
+int firingRate;
+int nextBullet;
 float size;
 
 class Enemy{
@@ -13,12 +14,13 @@ class Enemy{
     velocity.x = velX;
     velocity.y = velY;
     
-    firingRate = 10;
+    firingRate = 20;
     size = 20;
   }
   
   void update() {
     moveEnemy();
+    shoot();
   }
   
   void moveEnemy() {
@@ -28,7 +30,12 @@ class Enemy{
   }
   
   void shoot() {
-    print("Enemy is firing");
+    nextBullet++;
+    if(nextBullet == firingRate) {
+      nextBullet = 0;
+      print("Enemy is firing");
+    }
+    
   }
   
   void destroy() {
