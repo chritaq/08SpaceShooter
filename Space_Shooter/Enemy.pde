@@ -4,16 +4,17 @@ float firingRate;
 float size;
 
 class Enemy{
-  Enemy(PVector pos, PVector vel) {
+  Enemy(float posX, float posY, float velX, float velY) {
     position = new PVector();
-    position.x = pos.x;
-    position.y = pos.y;
+    position.x = posX;
+    position.y = posY;
     
     velocity = new PVector();
-    velocity.x = vel.x;
-    velocity.y = vel.y;
+    velocity.x = velX;
+    velocity.y = velY;
     
     firingRate = 10;
+    size = 20;
   }
   
   void update() {
@@ -26,7 +27,7 @@ class Enemy{
     position.y += velocity.y;
   }
   
-  void fire() {
+  void shoot() {
     print("Enemy is firing");
   }
   
