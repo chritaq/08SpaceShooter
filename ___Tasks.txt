@@ -7,6 +7,8 @@ Tasks:
 
 Christopher: 
 
-Petter
+Petter:
+
+-Awesome
 
 Amie:
