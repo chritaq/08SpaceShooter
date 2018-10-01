@@ -4,11 +4,8 @@ Tasks:
 - 
 
 
-<<<<<<< HEAD
-Christopher: derp
-=======
-Christopher: Peeetey
->>>>>>> 4a02982c27cf10c359575def55fdaf5f05a8c254
+
+Christopher: 
 
 Petter
 
