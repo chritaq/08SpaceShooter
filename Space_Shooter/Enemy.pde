@@ -27,15 +27,14 @@ class Enemy extends GameObject{
     if(alive) {
       moveEnemy();
       shoot();
-      destroy();
+      destroyByBullet();
     }
-    
   }
   
   void moveEnemy() {
+    super.updatePosWithVel();
     ellipse(position.x, position.y, size, size);
-    position.x += velocity.x;
-    position.y += velocity.y;
+    
   }
   
   void shoot() {
@@ -63,7 +62,7 @@ class Enemy extends GameObject{
     
   }
   
-  void destroy() {
+  void destroyByBullet() {
     //add if collision happens
     //if(true) {
     //  alive = false;

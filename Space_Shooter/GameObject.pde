@@ -22,4 +22,9 @@ class GameObject {
     size = newSize;
     colour = newColour;
   }
+  
+  void updatePosWithVel() {
+    position.x += velocity.x;
+    position.y += velocity.y;
+  }
 }
