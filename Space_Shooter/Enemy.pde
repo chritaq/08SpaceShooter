@@ -42,7 +42,6 @@ class Enemy extends GameObject{
           PVector bulletPosition = new PVector(position.x, position.y);
           PVector bulletSpeed = new PVector(velocity.x, velocity.y + 5);
           
-          //print(bulletsFired);
           bullets[bulletsFired] = new Bullet(bulletPosition, bulletSpeed);
           bulletsFired++;
     }
