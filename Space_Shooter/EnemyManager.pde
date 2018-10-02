@@ -13,6 +13,7 @@ class EnemyManager {
   
   void update() {
     updateEnemies();
+    //enemy1.bullets[i].getPosition();
   }
   
   void updateEnemies() {
