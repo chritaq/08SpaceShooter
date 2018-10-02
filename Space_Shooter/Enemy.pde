@@ -1,29 +1,26 @@
-Bullet bullet;
+class Enemy extends GameObject{
+  Bullet bullet;
+  
+  int firingRate;
+  int nextBullet;
+  PVector bulletSpeed;
+  PVector bulletPosition;
+  boolean alive = true;
+  boolean startFire = false;
 
-PVector position;
-PVector velocity;
-int firingRate;
-int nextBullet;
-PVector bulletSpeed;
-PVector bulletPosition;
-float size;
-boolean alive = true;
-boolean startFire = false;
-
-class Enemy{
-  Enemy(float posX, float posY, float velX, float velY) {
-    position = new PVector();
-    position.x = posX;
-    position.y = posY;
-    
-    velocity = new PVector();
-    velocity.x = velX;
-    velocity.y = velY;
+  Enemy(PVector newPos, PVector newVel) {
+    super(newPos, newVel);
     
     firingRate = 50;
     bulletSpeed = new PVector();
     bulletPosition = new PVector();
-    size = 20;
+  }
+  
+  Enemy(PVector newPos, PVector newVel, float newSize) {
+    super(newPos, newVel, newSize);
+    firingRate = 50;
+    bulletSpeed = new PVector();
+    bulletPosition = new PVector();
   }
   
   void update() {

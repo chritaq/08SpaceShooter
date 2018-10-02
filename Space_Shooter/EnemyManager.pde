@@ -2,7 +2,7 @@ Enemy enemy1;
 
 class EnemyManager {
   EnemyManager() {
-    enemy1 = new Enemy(width/2, 0, 0, 1);
+    enemy1 = new Enemy(new PVector(width/2, 0), new PVector(0, 1));
   }
   
   void update() {
