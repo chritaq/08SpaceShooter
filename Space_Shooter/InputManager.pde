@@ -6,9 +6,10 @@
 //getAxisRaw("direction").
 //skriv "horizontal" i "direction" för att få tillgång till höger/vänster
 //och "vertical" för att få tillgång till upp/ned.
-//Detta ger dig ett float-värde på -1 eller 1.
+//Detta returnar ett float-värde på -1, 0 eller 1.
 //Skriver du getAxisRaw("horizontal") och håller ned vänster så kommer den att
 //spotta ut ett float-värde på -1, håller du ned höger spottar den ut 1.
+//Håller du inte in någonting så får du värdet 0.
 
 //För shooting:
 //Du får tillgång till huruvida en knapp trycks ned genom:

@@ -1,9 +1,11 @@
-Enemy enemy1;
+
 //Enemy enemy2;
 //Enemy enemy3;
 //Enemy enemy4;
 
 class EnemyManager {
+  Enemy enemy1;
+  
   EnemyManager() {
     enemy1 = new Enemy(new PVector(width/2, 0), new PVector(0, 1));
     //enemy2 = new Enemy(new PVector(width/2 - 20, 0), new PVector(0, 1));
@@ -13,7 +15,10 @@ class EnemyManager {
   
   void update() {
     updateEnemies();
-    //enemy1.bullets[i].getPosition();
+    //Testkod för att hämta positionen för enemy bullets. Funkar! :)
+    //if(enemy1.bullets[0] != null) {
+    //  print(enemy1.bullets[0].getPosition());
+    //}
   }
   
   void updateEnemies() {
