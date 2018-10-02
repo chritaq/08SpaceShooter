@@ -1,26 +1,23 @@
 class Enemy extends GameObject{
-  Bullet bullet;
+  Bullet[] bullets;
   
-  int firingRate;
+  int firingRate = 10;
   int nextBullet;
-  PVector bulletSpeed;
-  PVector bulletPosition;
+  int amountOfBullets = 10;
+  int bulletsFired = 0;
+  //int hitPoints;
+  
   boolean alive = true;
   boolean startFire = false;
 
   Enemy(PVector newPos, PVector newVel) {
     super(newPos, newVel);
-    
-    firingRate = 50;
-    bulletSpeed = new PVector();
-    bulletPosition = new PVector();
+    bullets = new Bullet[amountOfBullets];
   }
   
   Enemy(PVector newPos, PVector newVel, float newSize) {
     super(newPos, newVel, newSize);
-    firingRate = 50;
-    bulletSpeed = new PVector();
-    bulletPosition = new PVector();
+    bullets = new Bullet[amountOfBullets];
   }
   
   void update() {
@@ -40,26 +37,18 @@ class Enemy extends GameObject{
   void shoot() {
     nextBullet++;
     
-    if(nextBullet == firingRate) {
-      nextBullet = 0;
-      bulletPosition.x = position.x;
-      bulletPosition.y = position.y;
-      bulletSpeed.x = 0;
-      bulletSpeed.y = velocity.y + 5;
-      
-      bullet = new Bullet(bulletPosition, bulletSpeed);
-      //print("Enemy is firing");
-      if(startFire == false) {
-        startFire = true;
-      }
+    if(nextBullet == firingRate && bulletsFired < amountOfBullets) {
+          nextBullet = 0;
+          PVector bulletPosition = new PVector(position.x, position.y);
+          PVector bulletSpeed = new PVector(velocity.x, velocity.y + 5);
+          
+          //print(bulletsFired);
+          bullets[bulletsFired] = new Bullet(bulletPosition, bulletSpeed);
+          bulletsFired++;
     }
-    
-    
-    
-    if(startFire == true) {
-      bullet.update();
+    for(int i = 0; i < bulletsFired; i++) {
+      bullets[i].update();
     }
-    
   }
   
   void destroyByBullet() {
@@ -68,5 +57,10 @@ class Enemy extends GameObject{
     //  alive = false;
     //}
   }
+  
+  //int numberOfBullets() {
+  //  //numberOfBullets = bulletsFired;
+  //  //return numberOfBullets();
+  //}
   
 }
