@@ -12,8 +12,4 @@ class Bullet extends GameObject {
 
 	}
 
-  PVector getPosition() {
-    return position;
-  }
-
 }

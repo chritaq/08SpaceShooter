@@ -27,4 +27,8 @@ class GameObject {
     position.x += velocity.x;
     position.y += velocity.y;
   }
+  
+  PVector getPosition() {
+    return position;
+  }
 }
