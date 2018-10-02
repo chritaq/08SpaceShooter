@@ -36,12 +36,13 @@ class Enemy extends GameObject{
   
   void shoot() {
     nextBullet++;
+    
     if(nextBullet == firingRate && bulletsFired < amountOfBullets) {
           nextBullet = 0;
           PVector bulletPosition = new PVector(position.x, position.y);
           PVector bulletSpeed = new PVector(velocity.x, velocity.y + 5);
           
-          print(bulletsFired);
+          //print(bulletsFired);
           bullets[bulletsFired] = new Bullet(bulletPosition, bulletSpeed);
           bulletsFired++;
     }
@@ -56,5 +57,10 @@ class Enemy extends GameObject{
     //  alive = false;
     //}
   }
+  
+  //int numberOfBullets() {
+  //  //numberOfBullets = bulletsFired;
+  //  //return numberOfBullets();
+  //}
   
 }
