@@ -1,4 +1,4 @@
-// //ej klar, kolla och byt ut namn!
+// //ej klar, kolla och byt ut namn! enemy.length?
 // void hitEnemy() {
 // 	for (int i = 0; i < numberOfEnemy; ++i) {
 

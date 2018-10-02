@@ -41,6 +41,7 @@ class Bullet extends GameObject {
 	}
 
 }
+// //ej klar, kolla och byt ut namn! enemy.length?
 // void hitEnemy() {
 // 	for (int i = 0; i < numberOfEnemy; ++i) {
 
@@ -51,9 +52,7 @@ class Bullet extends GameObject {
 // 											bullet[j].position.x, 
 // 											bullet[j].position.y, 
 // 											bullet[j].size/2);			
-			
 // 		}
-		
 // 	}
 // }
 
@@ -68,9 +67,21 @@ class Bullet extends GameObject {
 // 											bullet[j].position.x, 
 // 											bullet[j].position.y, 
 // 											bullet[j].size/2);		
-			
 // 		}
-		
+// 	}
+// }
+// //ej klar, kolla och byt ut namn!
+// void hitPlayerEnemy() {
+// 	for (int i = 0; i < player; ++i) {
+
+// 		for (int j = 0; j < numberOfEnemy; ++j) {
+// 			boolean hasCollided = collision(player[i].position.x,
+// 											player[i].position.y, 
+// 											player[i].size/2,
+// 											enemy[j].position.x, 
+// 											enemy[j].position.y, 
+// 											enemy[j].size/2);	
+// 		}
 // 	}
 // }
 
