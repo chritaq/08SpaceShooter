@@ -1,10 +1,11 @@
 class Enemy extends GameObject{
   Bullet[] bullets;
   
-  int firingRate = 50;
+  int firingRate = 10;
   int nextBullet;
-  int amountOfBullets = 100;
+  int amountOfBullets = 10;
   int bulletsFired = 0;
+  //int hitPoints;
   
   boolean alive = true;
   boolean startFire = false;
@@ -35,7 +36,7 @@ class Enemy extends GameObject{
   
   void shoot() {
     nextBullet++;
-    if(nextBullet == firingRate) {
+    if(nextBullet == firingRate && bulletsFired < amountOfBullets) {
           nextBullet = 0;
           PVector bulletPosition = new PVector(position.x, position.y);
           PVector bulletSpeed = new PVector(velocity.x, velocity.y + 5);
