@@ -47,7 +47,6 @@ class Enemy extends GameObject{
     }
     for(int i = 0; i < bulletsFired; i++) {
       bullets[i].update();
-      print(bullets[i].getPosition());
     }
   }
   
