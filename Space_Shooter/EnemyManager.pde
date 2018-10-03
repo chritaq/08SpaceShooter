@@ -1,37 +1,43 @@
 class EnemyManager {
   //Enemy enemy1;
   Enemy[] enemies;
+  
   int enemiesToKill = 10;
-  float timeBetweenSpawn = 100;
-  float timeSpawnCounter;
-  float timeSinceStart;
+  int timeCheck;
+  int timeInterval = 500;
+  int numberOfEnemies = 0; 
+  
+  boolean startSpawn = false;
   
   EnemyManager() {
     enemies = new Enemy[enemiesToKill];
-    for(int i = 0; i < enemiesToKill; i++) {
-      enemies[i] = new Enemy(new PVector(random(0, width), random(-100, 0)), new PVector(0, 1));
-    }
+    
+    timeCheck = millis();
   }
   
   void update() {
-    updateEnemies();
+    enemySpawner();
+    if(startSpawn == true) {
+      updateEnemies();
+    }
+    
   }
   
   void enemySpawner() {
-    timeSinceStart = millis();
-    
+    if(millis() > timeCheck + timeInterval && numberOfEnemies < enemiesToKill) {
+      timeCheck = millis();
+      enemies[numberOfEnemies] = new Enemy(new PVector(random(0, width), 0), new PVector(0, 1));
+      numberOfEnemies++;
+      if(startSpawn == false) {
+        startSpawn = true;
+      }
+    }
   }
   
   void updateEnemies() {
-    for(int i = 0; i < enemiesToKill; i++) {
+    for(int i = 0; i < numberOfEnemies; i++) {
       enemies[i].update();
     }
-    //enemy1.update();
-  }
-  
-  void timer() {
-    
-    
   }
   
   //void getBulletPosition() {
