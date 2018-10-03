@@ -1,4 +1,4 @@
-class EnemyManager {
+class GameManager {
   //Enemy enemy1;
   Enemy[] enemies;
   
@@ -7,9 +7,11 @@ class EnemyManager {
   int timeInterval = 500;
   int numberOfEnemies = 0; 
   
+  int points = 0;
+  
   boolean startSpawn = false;
   
-  EnemyManager() {
+  GameManager() {
     enemies = new Enemy[enemiesToKill];
     
     timeCheck = millis();
@@ -20,6 +22,8 @@ class EnemyManager {
     if(startSpawn == true) {
       updateEnemies();
     }
+    
+    scorePoint();
   }
   
   void enemySpawner() {
@@ -38,21 +42,43 @@ class EnemyManager {
       enemies[i].update();
     }
     checkPlayerShot();
+    checkEnemyShot();
   }
   
   
   void checkEnemyShot() {
-    
+    int bulletsFromPlayer = player.bulletsFired;
+    for(int i = 0; i < bulletsFromPlayer; i++) {
+       PVector bulletPos = new PVector();
+       bulletPos.x = player.bullets[i].getPosition("x");
+       bulletPos.y = player.bullets[i].getPosition("y");
+       float bulletSize = player.bullets[i].getSize();
+       
+       for(int j = 0; j < numberOfEnemies; j++) {
+         PVector enemyPos = new PVector();
+         enemyPos.x = enemies[j].getPosition("x");
+         enemyPos.y = enemies[j].getPosition("y");
+         float enemySize = enemies[j].getSize();
+       
+         boolean collided = checkCollision(bulletPos, bulletSize, enemyPos, enemySize);
+         
+         if(collided) {
+           enemies[j].destroy();
+           player.bullets[i].destroy();
+           points++;
+         }
+       }
+    }
   }
   
   void checkPlayerShot() {
-   for (int i = 0; i < numberOfEnemies; ++i) {
+   for (int i = 0; i < numberOfEnemies; i++) {
      //Get the amount of bullets each enemy has.
-     int bulletPerEnemy = enemies[i].bulletsFired;
+     int bulletsPerEnemy = enemies[i].bulletsFired;
      
      
      //Gets the position of each bullets.
-     for(int j = 0; j < bulletPerEnemy; j++) {
+     for(int j = 0; j < bulletsPerEnemy; j++) {
        PVector bulletPos = new PVector();
        bulletPos.x = enemies[i].bullets[j].getPosition("x");
        bulletPos.y = enemies[i].bullets[j].getPosition("y");
@@ -88,6 +114,10 @@ class EnemyManager {
       return true;
     }
 
+  }
+  
+  void scorePoint() {
+    text("Score " + points, 0, 20); 
   }
   
   //void getBulletPosition() {

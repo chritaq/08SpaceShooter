@@ -12,6 +12,7 @@ class Player extends Ship {
       playerMovement();
       playerShoots();
     }
+    updateBullets();
   }
   
   void playerMovement() {
@@ -28,7 +29,6 @@ class Player extends Ship {
   	if (shoot){
       createBullets("UP");
     }
-  	updateBullets();
   }
 
   void createPlayer() {

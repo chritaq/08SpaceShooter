@@ -1,11 +1,11 @@
-EnemyManager enemyManager;
+GameManager enemyManager;
 Player player;
-int score;
+//int score;
 
 
 void setup() {
   size(360, 540);
-  enemyManager = new EnemyManager();
+  enemyManager = new GameManager();
   player = new Player(new PVector(width/2, 500));
   
 }
@@ -15,7 +15,6 @@ void draw() {
    background(255, 255, 255);
   enemyManager.update();
   player.update();
- text("Score " + score, 0, 20); 
  }
  
  else {

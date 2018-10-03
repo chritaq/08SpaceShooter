@@ -59,5 +59,6 @@ class GameObject {
       alive = false;
     }
     size = 0;
+    position.x = 0 - 100;
   }
 }
