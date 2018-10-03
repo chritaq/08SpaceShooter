@@ -45,4 +45,8 @@ class Ship extends GameObject {
     //}
   }
   
+  int getBulletsFired() {
+    return bulletsFired;
+  }
+  
 }

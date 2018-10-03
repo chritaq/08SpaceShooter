@@ -7,7 +7,7 @@
 //skriv "horizontal" i "direction" för att få tillgång till höger/vänster
 //och "vertical" för att få tillgång till upp/ned.
 //Detta returnar ett float-värde på -1, 0 eller 1.
-//Skriver du getAxisRaw("horizontal") och håller ned vänster så kommer den att
+//EX: Skriver du getAxisRaw("horizontal") och håller ned vänster så kommer den att
 //spotta ut ett float-värde på -1, håller du ned höger spottar den ut 1.
 //Håller du inte in någonting så får du värdet 0.
 
