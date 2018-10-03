@@ -1,5 +1,8 @@
 EnemyManager enemyManager;
 Player player;
+int score;
+boolean lost = false;
+
 
 void setup() {
   size(360, 540);
@@ -9,7 +12,16 @@ void setup() {
 }
 
 void draw() {
-  background(255, 255, 255);
+ if (!lost) {
+   background(255, 255, 255);
   enemyManager.update();
   player.update();
+ text("Score " + score, 0, 20); 
+ }
+ 
+ else {
+ text ("Game Over", width/2 - textWidth("Game Over")/2 , height/2);
+ }
+
+  
 }
