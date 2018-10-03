@@ -12,7 +12,6 @@ class Enemy extends Ship{
     if(alive) {
       moveEnemy();
       shoot();
-      //destroyByBullet();
     }
   }
   

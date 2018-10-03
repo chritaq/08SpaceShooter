@@ -1,7 +1,6 @@
 EnemyManager enemyManager;
 Player player;
 int score;
-boolean lost = false;
 
 
 void setup() {
@@ -12,7 +11,7 @@ void setup() {
 }
 
 void draw() {
- if (!lost) {
+ if (player.alive) {
    background(255, 255, 255);
   enemyManager.update();
   player.update();

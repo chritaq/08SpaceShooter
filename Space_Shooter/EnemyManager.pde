@@ -37,7 +37,6 @@ class EnemyManager {
     for(int i = 0; i < numberOfEnemies; i++) {
       enemies[i].update();
     }
-    
     checkPlayerShot();
   }
   
