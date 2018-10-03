@@ -28,4 +28,5 @@ class Enemy extends Ship{
       super.updateBullets();
   }
   
+  
 }

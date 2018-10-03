@@ -32,6 +32,18 @@ class GameObject {
     position.y += velocity.y;
   }
   
+  float getPosition(String axis) {
+    if(axis == "x") {
+      return position.x;
+    }
+    if(axis == "y") {
+      return position.y;
+    }
+    else {
+      return 0;
+    }
+  }
+  
   PVector getPosition() {
     return position;
   }

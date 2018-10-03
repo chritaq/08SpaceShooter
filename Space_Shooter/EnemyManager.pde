@@ -40,6 +40,20 @@ class EnemyManager {
     }
   }
   
+  
+  void checkCollission() {
+   for (int j = 0; j < numberOfEnemies; ++j) {
+     //Get the amount of bullets each enemy has.
+     int bulletPerEnemy = enemies[j].bulletsFired;
+     
+     //Gets the position of each bullets.
+     for(int h = 0; h < bulletPerEnemy; h++) {
+       PVector bulletPos = new PVector(enemies[j].bullets[h].getPosition("x"); );
+       //enemies[j].bullets[h].size;   
+     }
+ }
+  }
+  
   //void getBulletPosition() {
   //  Testkod för att hämta positionen för enemy bullets. Funkar! :)
   //  if(enemy1.bullets[0] != null) {
