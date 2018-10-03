@@ -56,19 +56,19 @@ void keyReleased() {
       moveDown = false;
     }
     if(keyCode == LEFT) {
-      moveLeft = true;
+      moveLeft = false;
     }
     if(keyCode == RIGHT) {
-      moveRight = true;
+      moveRight = false;
     }
   }
   
   if(key == 'z') {
-    slowMove = true;
+    slowMove = false;
   }
   
   if(key == 'x') {
-    shoot = true;
+    shoot = false;
   }
 }
 

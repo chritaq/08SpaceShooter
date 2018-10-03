@@ -9,6 +9,7 @@ class Ship extends GameObject {
   
   boolean alive = true;
   
+  
   Ship(PVector newPos, PVector newVel) {
     super(newPos, newVel);
     bullets = new Bullet[amountOfBullets];
@@ -19,18 +20,24 @@ class Ship extends GameObject {
     bullets = new Bullet[amountOfBullets];
   }
   
-  void createBullets() {
-    nextBullet++; 
+  
+  void createBullets(String direction) {
+    nextBullet++;
     if(nextBullet == firingRate) {
         nextBullet = 0;
         PVector bulletFiredPosition = new PVector(position.x, position.y);
-        PVector bulletFiredSpeed = new PVector(velocity.x, velocity.y + bulletSpeed);
-        
-        //print(bulletsFired);
-        bullets[bulletsFired] = new Bullet(bulletFiredPosition, bulletFiredSpeed);
+        if(direction == "UP") {
+          PVector bulletFiredSpeed = new PVector(velocity.x, velocity.y - bulletSpeed);
+          bullets[bulletsFired] = new Bullet(bulletFiredPosition, bulletFiredSpeed);  
+        }
+        if(direction == "DOWN") {
+          PVector bulletFiredSpeed = new PVector(velocity.x, velocity.y + bulletSpeed);
+          bullets[bulletsFired] = new Bullet(bulletFiredPosition, bulletFiredSpeed);
+        }
         bulletsFired++;
     }
   }
+  
   
   void updateBullets() {
     for(int i = 0; i < bulletsFired; i++) {
@@ -38,12 +45,14 @@ class Ship extends GameObject {
     }
   }
   
+  
   void destroyByBullet() {
     //add if collision happens
     //if(true) {
     //  alive = false;
     //}
   }
+  
   
   int getBulletsFired() {
     return bulletsFired;
