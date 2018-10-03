@@ -7,10 +7,11 @@ class Player extends Ship {
   }
 
   void update() {
-  	createPlayer();
-	playerMovement();
-	playerShoots();
-	
+    if(alive) {
+      createPlayer();
+      playerMovement();
+      playerShoots();
+    }
   }
   
   void playerMovement() {

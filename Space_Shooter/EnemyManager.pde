@@ -20,15 +20,12 @@ class EnemyManager {
     if(startSpawn == true) {
       updateEnemies();
     }
-    
-    
-    
   }
   
   void enemySpawner() {
     if(millis() > timeCheck + timeInterval && numberOfEnemies < enemiesToKill) {
       timeCheck = millis();
-      enemies[numberOfEnemies] = new Enemy(new PVector(random(0, width), 0), new PVector(0, 1));
+      enemies[numberOfEnemies] = new Enemy(new PVector(random(0, width), 0), new PVector(0, 1), 9);
       numberOfEnemies++;
       if(startSpawn == false) {
         startSpawn = true;
@@ -45,7 +42,9 @@ class EnemyManager {
   }
   
   
-
+  void checkEnemyShot() {
+    
+  }
   
   void checkPlayerShot() {
    for (int i = 0; i < numberOfEnemies; ++i) {
@@ -58,18 +57,19 @@ class EnemyManager {
        PVector bulletPos = new PVector();
        bulletPos.x = enemies[i].bullets[j].getPosition("x");
        bulletPos.y = enemies[i].bullets[j].getPosition("y");
-       //float bulletSize = enemies[i].bullets[j].getSize();
+       float bulletSize = enemies[i].bullets[j].getSize();
        
-       //PVector playerPos = new PVector();
-       //playerPos.x = player.getPosition(x);
-       //playerPos.y = player.getPosition(y);
-       //float playerSize = player.getSize();
+       PVector playerPos = new PVector();
+       playerPos.x = player.getPosition("x");
+       playerPos.y = player.getPosition("y");
+       float playerSize = player.getSize();
        
-       //boolean collided = checkCollission(bulletPos, bulletSize, playerPos, playerSize);
+       boolean collided = checkCollision(bulletPos, bulletSize, playerPos, playerSize);
        
-       //if(collided) {
-       //  player.destroy();
-       //}
+       if(collided) {
+         player.destroy();
+         enemies[i].bullets[j].destroy();
+       }
      }
    }
   }

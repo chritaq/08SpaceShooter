@@ -1,18 +1,18 @@
 class Enemy extends Ship{
 
-  Enemy(PVector newPos, PVector newVel) {
-    super(newPos, newVel);
+  Enemy(PVector newPos, PVector newVel, int newAmountOfBullets) {
+    super(newPos, newVel, newAmountOfBullets);
   }
   
-  Enemy(PVector newPos, PVector newVel, float newSize) {
-    super(newPos, newVel, newSize);
+  Enemy(PVector newPos, PVector newVel, int newAmountOfBullets, float newSize) {
+    super(newPos, newVel, newAmountOfBullets, newSize);
   }
   
   void update() {
     if(alive) {
       moveEnemy();
       shoot();
-      destroyByBullet();
+      //destroyByBullet();
     }
   }
   

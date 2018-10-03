@@ -4,6 +4,8 @@ class GameObject {
   float size;
   PVector colour;
   
+  boolean alive = true;
+  
   GameObject (PVector newPos, PVector newVel) {
     position = newPos;
     velocity = newVel;
@@ -46,5 +48,16 @@ class GameObject {
   
   PVector getPosition() {
     return position;
+  }
+  
+  float getSize() {
+    return size;
+  }
+  
+  void destroy() {
+    if(true) {
+      alive = false;
+    }
+    size = 0;
   }
 }
