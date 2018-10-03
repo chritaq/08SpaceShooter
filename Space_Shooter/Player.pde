@@ -1,12 +1,29 @@
-int x, y;
+class Player extends Ship {
+  
+  float speed = 5;
 
-void setup() {
- size (500,500);
- x = 300;
- y = 300;
- }
+public Player(PVector newPos) {
+    super (newPos, new PVector());
+}
 
 void draw() {
-background(0);
-ellipse(x, y, 20, 20);
+  fill(79,156,228);
+ellipse(position.x, position.y, 40, 40);
+fill (255,10,10);
+}
+
+void update() {
+float moveY = getAxisRaw("Vertical") * speed;
+float moveX = getAxisRaw("Horizontal") * speed;
+boolean slow = getButton("z") ;
+boolean shoot = getButton("x");
+  
+  if (shoot){
+    createBullets("UP");
+  }
+  updateBullets();
+position.x = position.x + moveX;
+position.y = position.y + moveY;
+draw();
+  }
 }

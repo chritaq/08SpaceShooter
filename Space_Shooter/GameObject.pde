@@ -10,6 +10,10 @@ class GameObject {
     size = 20;
   }
   
+  GameObject (PVector newPos) {
+    position = newPos;
+  }
+  
   GameObject (PVector newPos, PVector newVel, float newSize) {
     position = newPos;
     velocity = newVel;
