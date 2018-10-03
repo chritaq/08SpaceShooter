@@ -21,6 +21,8 @@ class EnemyManager {
       updateEnemies();
     }
     
+    
+    
   }
   
   void enemySpawner() {
@@ -38,20 +40,55 @@ class EnemyManager {
     for(int i = 0; i < numberOfEnemies; i++) {
       enemies[i].update();
     }
+    
+    checkPlayerShot();
   }
   
   
-  void checkCollission() {
-   for (int j = 0; j < numberOfEnemies; ++j) {
+
+  
+  void checkPlayerShot() {
+   for (int i = 0; i < numberOfEnemies; ++i) {
      //Get the amount of bullets each enemy has.
-     int bulletPerEnemy = enemies[j].bulletsFired;
+     int bulletPerEnemy = enemies[i].bulletsFired;
+     
      
      //Gets the position of each bullets.
-     for(int h = 0; h < bulletPerEnemy; h++) {
-       PVector bulletPos = new PVector(enemies[j].bullets[h].getPosition("x"); );
-       //enemies[j].bullets[h].size;   
+     for(int j = 0; j < bulletPerEnemy; j++) {
+       PVector bulletPos = new PVector();
+       bulletPos.x = enemies[i].bullets[j].getPosition("x");
+       bulletPos.y = enemies[i].bullets[j].getPosition("y");
+       //float bulletSize = enemies[i].bullets[j].getSize();
+       
+       //PVector playerPos = new PVector();
+       //playerPos.x = player.getPosition(x);
+       //playerPos.y = player.getPosition(y);
+       //float playerSize = player.getSize();
+       
+       //boolean collided = checkCollission(bulletPos, bulletSize, playerPos, playerSize);
+       
+       //if(collided) {
+       //  player.destroy();
+       //}
      }
- }
+   }
+  }
+  
+  boolean checkCollision(PVector pos1, float size1, PVector pos2, float size2) {
+    float maxDistance = size1 + size2;
+    
+    if(abs(pos1.x - pos2.x) > maxDistance || abs(pos1.y - pos2.y) > maxDistance) {
+      return false;
+    }
+    
+    else if(dist(pos1.x, pos1.y, pos2.x, pos2.y) > maxDistance) {
+      return false;
+    }
+    
+    else {
+      return true;
+    }
+
   }
   
   //void getBulletPosition() {
