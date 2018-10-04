@@ -46,25 +46,14 @@ class Ship extends GameObject {
           bulletsFired = 0;
         }
     }
-    //Lägg till så att de försvinner när de hamnar utanför skärmen??
   }
   
   
   void updateBullets() {
     for(int i = 0; i < bulletsFired; i++) {
-      //gbullets[i].position = new PVector (position.x, position.y);
       bullets[i].update();
     }
-    
-    //if(bulletsFired == amountOfBullets) {
-    //      bullets[bulletsFired].position = new PVector (position.x, position.y);
-    //    }
-    
   }
-  
-  
-
-  
   
   int getBulletsFired() {
     return bulletsFired;
