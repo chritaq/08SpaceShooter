@@ -54,11 +54,17 @@ class GameObject {
     return size;
   }
   
-  void destroy() {
+  void destroy(String enemyOrPlayer) {
     if(true) {
       alive = false;
     }
     size = 0;
-    position.x = 0 - 100;
+    if(enemyOrPlayer == "Enemy") {
+      position.x = 0 - 100;
+    }
+    else if(enemyOrPlayer == "Player") {
+      position.x = width + 100;
+    }
+    
   }
 }

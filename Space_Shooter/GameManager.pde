@@ -63,8 +63,8 @@ class GameManager {
          boolean collided = checkCollision(bulletPos, bulletSize, enemyPos, enemySize);
          
          if(collided) {
-           enemies[j].destroy();
-           player.bullets[i].destroy();
+           enemies[j].destroy("Enemy");
+           player.bullets[i].destroy("Player");
            points++;
          }
        }
@@ -92,8 +92,8 @@ class GameManager {
        boolean collided = checkCollision(bulletPos, bulletSize, playerPos, playerSize);
        
        if(collided) {
-         player.destroy();
-         enemies[i].bullets[j].destroy();
+         player.destroy("Player");
+         enemies[i].bullets[j].destroy("Enemy");
        }
      }
    }
@@ -114,8 +114,8 @@ class GameManager {
       boolean collided = checkCollision(enemyPos, enemySize, playerPos, playerSize);
       
       if(collided) {
-         player.destroy();
-         enemies[i].destroy();
+         player.destroy("Player");
+         enemies[i].destroy("Enemy");
       }
     }
   }
