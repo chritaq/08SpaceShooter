@@ -6,7 +6,6 @@ void setup() {
   size(360, 540);
   gameManager = new GameManager();
   player = new Player(new PVector(width/2, 500));
-  
 }
 
 void draw() {

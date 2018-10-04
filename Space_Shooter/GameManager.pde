@@ -3,6 +3,7 @@ class GameManager {
   Enemy[] enemies;
   
   int enemiesToSpawn = 10;
+  int enemiesDead = 0;
   int timeCheckForSpawn;
   int timeIntervalForSpawn = 500;
   int enemiesSpawned = 0; 
@@ -17,18 +18,18 @@ class GameManager {
   }
   
   void update() {
-    enemySpawner();
+    randomEnemySpawner();
     if(startSpawn == true) {
       updateEnemies();
     }
     scorePoint();
   }
   
-  void enemySpawner() {
+  void randomEnemySpawner() {
     if(millis() > timeCheckForSpawn + timeIntervalForSpawn && enemiesSpawned < enemiesToSpawn) {
       timeCheckForSpawn = millis();
       enemies[enemiesSpawned] = new Enemy(new PVector(random(0, width), 0), new PVector(0, 1));
-      enemies[enemiesSpawned].setEnemyType(2);
+      enemies[enemiesSpawned].setEnemyType((int)random(0, 2.99));
       enemiesSpawned++;
       if(startSpawn == false) {
         startSpawn = true;
@@ -39,6 +40,9 @@ class GameManager {
   void updateEnemies() {
     for(int i = 0; i < enemiesSpawned; i++) {
       enemies[i].update();
+      if(enemies[i].alive) {
+        enemiesDead += enemies[i].checkOutOfBounds();
+      }
     }
     checkPlayerShot();
     checkEnemyShot();
@@ -63,7 +67,7 @@ class GameManager {
          boolean collided = checkCollision(bulletPos, bulletSize, enemyPos, enemySize);
          
          if(collided) {
-           enemies[j].loseHealth();
+           enemiesDead = enemiesDead + enemies[j].loseHealth();
            player.bullets[i].destroy("Player");
            points++;
          }
@@ -116,6 +120,7 @@ class GameManager {
       if(collided) {
          player.destroy("Player");
          enemies[i].destroy("Enemy");
+         enemiesDead = enemiesDead + 1;
       }
     }
   }
@@ -134,7 +139,15 @@ class GameManager {
     else {
       return true;
     }
-
+  }
+  
+  boolean stageClear() {
+    if(enemiesDead == enemiesToSpawn) {
+      return true;
+    }
+    else {
+      return false;
+    }
   }
   
   void scorePoint() {

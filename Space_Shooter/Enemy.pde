@@ -19,6 +19,7 @@ class Enemy extends Ship{
     if(alive) {
       moveEnemy();
       shoot();
+      //checkOutOfBounds();
     }
     super.updateBullets();
   }
@@ -96,15 +97,26 @@ class Enemy extends Ship{
     }
   }
   
-  void loseHealth() {
+  int loseHealth() {
+    colourDarkness -= 50;
     if(hitPoints > 1) {
       hitPoints--;
+      return 0;
     }
     else {
       this.destroy("Enemy");
+      return 1;
     }
-    colourDarkness -= 50;
   }
   
+  int checkOutOfBounds() {
+    if(position.y > height) {
+      this.destroy("Enemy");
+      return 1;
+    }
+    else {
+      return 0;
+    }
+  }
   
 }
