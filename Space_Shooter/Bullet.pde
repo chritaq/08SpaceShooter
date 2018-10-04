@@ -12,7 +12,10 @@ class Bullet extends GameObject {
       ellipse(position.x, position.y, size, size);
     }
 		
-
+    if(alive == true && (position.y > height || position.y < 0)) {
+      alive = false;
+      position.y = 0 - 1000;
+    }
 	}
 
 }

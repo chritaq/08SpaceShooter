@@ -3,7 +3,7 @@ class Ship extends GameObject {
   
   int firingRate = 10;
   int nextBullet;
-  int amountOfBullets = 100000;
+  int amountOfBullets;
   int bulletsFired = 0;
   float bulletSpeed = 5;
   
@@ -11,20 +11,20 @@ class Ship extends GameObject {
   
   Ship(PVector newPos, PVector newVel) {
     super(newPos, newVel);
-    bullets = new Bullet[amountOfBullets];
     amountOfBullets = 10;
+    bullets = new Bullet[amountOfBullets];
   }
   
   Ship(PVector newPos, PVector newVel, int newAmountOfBullets) {
     super(newPos, newVel);
-    bullets = new Bullet[amountOfBullets];
     amountOfBullets = newAmountOfBullets;
+    bullets = new Bullet[amountOfBullets];
   }
   
   Ship(PVector newPos, PVector newVel, int newAmountOfBullets, float newSize) {
     super(newPos, newVel, newSize);
-    bullets = new Bullet[amountOfBullets];
     amountOfBullets = newAmountOfBullets;
+    bullets = new Bullet[amountOfBullets];
   }
   
   
@@ -42,6 +42,9 @@ class Ship extends GameObject {
           bullets[bulletsFired] = new Bullet(bulletFiredPosition, bulletFiredSpeed);
         }
         bulletsFired++;
+        if(direction == "UP" && bulletsFired == amountOfBullets) {
+          bulletsFired = 0;
+        }
     }
     //Lägg till så att de försvinner när de hamnar utanför skärmen??
   }
