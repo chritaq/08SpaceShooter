@@ -1,6 +1,7 @@
 class Player extends Ship {
-  
-  float speed = 5;
+  float speed;
+  float startSpeed = 5;
+  float slowSpeed = startSpeed/2;
 
   public Player(PVector newPos) {
     super (newPos, new PVector());
@@ -20,10 +21,13 @@ class Player extends Ship {
 	float moveX = getAxisRaw("Horizontal") * speed;
 	position.x = position.x + moveX;
 	position.y = position.y + moveY;
-	//boolean slow = getButton("z");
-	//if (slow) {
-	//	speed = speed/2;
-	//}
+	boolean slow = getButton("z");
+	if (slow) {
+		speed = slowSpeed;
+	}
+	else if (!slow) {
+		speed = startSpeed;
+	}
 
 	if (position.x < 0) {
 		position.x = 0;
