@@ -65,7 +65,7 @@ class GameManager {
          enemyPos.y = enemies[j].getPosition("y");
          float enemySize = enemies[j].getSize();
        
-         boolean collided = checkCollision(bulletPos, bulletSize, enemyPos, enemySize);
+         boolean collided = checkCollision(bulletPos, bulletSize * 1.2, enemyPos, enemySize);
          
          if(collided) {
            enemiesDead = enemiesDead + enemies[j].loseHealth();
@@ -94,7 +94,7 @@ class GameManager {
        playerPos.y = player.getPosition("y");
        float playerSize = player.getSize();
        
-       boolean collided = checkCollision(bulletPos, bulletSize, playerPos, playerSize);
+       boolean collided = checkCollision(bulletPos, bulletSize, playerPos, playerSize/2);
        
        if(collided) {
          player.destroy("Player");
@@ -116,7 +116,7 @@ class GameManager {
       playerPos.y = player.getPosition("y");
       float playerSize = player.getSize();
       
-      boolean collided = checkCollision(enemyPos, enemySize, playerPos, playerSize);
+      boolean collided = checkCollision(enemyPos, enemySize, playerPos, playerSize/2);
       
       if(collided) {
          player.destroy("Player");
