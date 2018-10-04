@@ -1,12 +1,12 @@
 class Enemy extends Ship{
   int hitPoints;
 
-  Enemy(PVector newPos, PVector newVel, int newAmountOfBullets) {
-    super(newPos, newVel, newAmountOfBullets);
+  Enemy(PVector newPos, PVector newVel) {
+    super(newPos, newVel);
   }
   
-  Enemy(PVector newPos, PVector newVel, int newAmountOfBullets, float newSize) {
-    super(newPos, newVel, newAmountOfBullets, newSize);
+  Enemy(PVector newPos, PVector newVel, float newSize) {
+    super(newPos, newVel, newSize);
   }
   
   void update() {
@@ -31,7 +31,7 @@ class Enemy extends Ship{
   void setEnemyType(int enemyType) {
     if(enemyType == 0) {
       hitPoints = 3;
-      amountOfBullets = 1;
+      amountOfBullets = 3;
     }
     if(enemyType == 1) {
       hitPoints = 5;

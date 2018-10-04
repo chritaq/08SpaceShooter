@@ -2,19 +2,18 @@ class GameManager {
   //Enemy enemy1;
   Enemy[] enemies;
   
-  int enemiesToKill = 10;
-  int timeCheck;
-  int timeInterval = 500;
-  int numberOfEnemies = 0; 
+  int enemiesToSpawn = 10;
+  int timeCheckForSpawn;
+  int timeIntervalForSpawn = 500;
+  int enemiesSpawned = 0; 
+  boolean startSpawn = false;
   
   int points = 0;
   
-  boolean startSpawn = false;
   
   GameManager() {
-    enemies = new Enemy[enemiesToKill];
-    
-    timeCheck = millis();
+    enemies = new Enemy[enemiesToSpawn];
+    timeCheckForSpawn = millis();
   }
   
   void update() {
@@ -26,11 +25,11 @@ class GameManager {
   }
   
   void enemySpawner() {
-    if(millis() > timeCheck + timeInterval && numberOfEnemies < enemiesToKill) {
-      timeCheck = millis();
-      enemies[numberOfEnemies] = new Enemy(new PVector(random(0, width), 0), new PVector(0, 1), 9);
-      enemies[numberOfEnemies].setEnemyType(0);
-      numberOfEnemies++;
+    if(millis() > timeCheckForSpawn + timeIntervalForSpawn && enemiesSpawned < enemiesToSpawn) {
+      timeCheckForSpawn = millis();
+      enemies[enemiesSpawned] = new Enemy(new PVector(random(0, width), 0), new PVector(0, 1));
+      enemies[enemiesSpawned].setEnemyType(0);
+      enemiesSpawned++;
       if(startSpawn == false) {
         startSpawn = true;
       }
@@ -38,7 +37,7 @@ class GameManager {
   }
   
   void updateEnemies() {
-    for(int i = 0; i < numberOfEnemies; i++) {
+    for(int i = 0; i < enemiesSpawned; i++) {
       enemies[i].update();
     }
     checkPlayerShot();
@@ -55,7 +54,7 @@ class GameManager {
        bulletPos.y = player.bullets[i].getPosition("y");
        float bulletSize = player.bullets[i].getSize();
        
-       for(int j = 0; j < numberOfEnemies; j++) {
+       for(int j = 0; j < enemiesSpawned; j++) {
          PVector enemyPos = new PVector();
          enemyPos.x = enemies[j].getPosition("x");
          enemyPos.y = enemies[j].getPosition("y");
@@ -73,7 +72,7 @@ class GameManager {
   }
   
   void checkPlayerShot() {
-   for (int i = 0; i < numberOfEnemies; i++) {
+   for (int i = 0; i < enemiesSpawned; i++) {
      //Get the amount of bullets each enemy has.
      int bulletsPerEnemy = enemies[i].bulletsFired;
      
@@ -101,7 +100,7 @@ class GameManager {
   }
   
   void checkPlayerEnemyCollision() {
-    for(int i = 0; i < numberOfEnemies; i++) {
+    for(int i = 0; i < enemiesSpawned; i++) {
       PVector enemyPos = new PVector();
       enemyPos.x = enemies[i].getPosition("x");
       enemyPos.y = enemies[i].getPosition("y");

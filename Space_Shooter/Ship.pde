@@ -19,16 +19,8 @@ class Ship extends GameObject {
     timeCheck = millis();
   }
   
-  Ship(PVector newPos, PVector newVel, int newAmountOfBullets) {
-    super(newPos, newVel);
-    amountOfBullets = newAmountOfBullets;
-    bullets = new Bullet[amountOfBullets];
-    timeCheck = millis();
-  }
-  
-  Ship(PVector newPos, PVector newVel, int newAmountOfBullets, float newSize) {
+  Ship(PVector newPos, PVector newVel, float newSize) {
     super(newPos, newVel, newSize);
-    amountOfBullets = newAmountOfBullets;
     bullets = new Bullet[amountOfBullets];
     timeCheck = millis();
   }
