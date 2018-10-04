@@ -60,7 +60,7 @@ class Enemy extends Ship{
     if(enemyType == 2) {
         hitPoints = 10;
         
-        velocity.x = 1;
+        velocity.x = 1.5;
         velocity.y = 1;
         specialMovement = true;
         
