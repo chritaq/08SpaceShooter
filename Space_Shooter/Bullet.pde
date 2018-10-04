@@ -1,6 +1,5 @@
 class Bullet extends GameObject {
 
-
 	public Bullet(PVector newPos, PVector newVel) {
 		super(newPos, newVel);
 		size = 5;

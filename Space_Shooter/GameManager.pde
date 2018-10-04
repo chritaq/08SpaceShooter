@@ -28,7 +28,7 @@ class GameManager {
     if(millis() > timeCheckForSpawn + timeIntervalForSpawn && enemiesSpawned < enemiesToSpawn) {
       timeCheckForSpawn = millis();
       enemies[enemiesSpawned] = new Enemy(new PVector(random(0, width), 0), new PVector(0, 1));
-      enemies[enemiesSpawned].setEnemyType(0);
+      enemies[enemiesSpawned].setEnemyType(2);
       enemiesSpawned++;
       if(startSpawn == false) {
         startSpawn = true;
