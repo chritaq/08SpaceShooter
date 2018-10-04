@@ -28,7 +28,7 @@ class Ship extends GameObject {
   }
   
   
-  void createBullets(String direction) {
+  void createBullets(String direction, String playerOrEnemy) {
     nextBullet++;
     if(nextBullet == firingRate) {
         nextBullet = 0;
@@ -42,7 +42,7 @@ class Ship extends GameObject {
           bullets[bulletsFired] = new Bullet(bulletFiredPosition, bulletFiredSpeed);
         }
         bulletsFired++;
-        if(direction == "UP" && bulletsFired == amountOfBullets) {
+        if(playerOrEnemy == "Player" && bulletsFired == amountOfBullets) {
           bulletsFired = 0;
         }
     }

@@ -23,7 +23,7 @@ class Enemy extends Ship{
   
   void shoot() {
     if(bulletsFired < amountOfBullets) {
-      super.createBullets("DOWN");
+      super.createBullets("DOWN", "enemy");
     }
   }
   

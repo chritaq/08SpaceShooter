@@ -40,7 +40,7 @@ class Player extends Ship {
 	boolean shoot = getButton("x");		 
   	
   	if (shoot){
-      createBullets("UP");
+      createBullets("UP", "Player");
     }
   }
 
