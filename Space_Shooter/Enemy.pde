@@ -1,5 +1,6 @@
 class Enemy extends Ship{
   int hitPoints;
+  float colourDarkness = 255;
 
   Enemy(PVector newPos, PVector newVel) {
     super(newPos, newVel);
@@ -18,6 +19,7 @@ class Enemy extends Ship{
   }
   
   void moveEnemy() {
+    fill (colourDarkness,10,10);
     super.updatePosWithVel();
     ellipse(position.x, position.y, size, size);
   }
@@ -46,6 +48,7 @@ class Enemy extends Ship{
     else {
       this.destroy("Enemy");
     }
+    colourDarkness -= 50;
   }
   
   
