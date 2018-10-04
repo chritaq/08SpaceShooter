@@ -31,9 +31,11 @@ class Enemy extends Ship{
   void setEnemyType(int enemyType) {
     if(enemyType == 0) {
       hitPoints = 3;
+      amountOfBullets = 1;
     }
     if(enemyType == 1) {
       hitPoints = 5;
+      amountOfBullets = 10;
     }
   }
   
