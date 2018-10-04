@@ -22,7 +22,6 @@ class GameManager {
     if(startSpawn == true) {
       updateEnemies();
     }
-    
     scorePoint();
   }
   
@@ -43,6 +42,7 @@ class GameManager {
     }
     checkPlayerShot();
     checkEnemyShot();
+    checkPlayerEnemyCollision();
   }
   
   
@@ -99,6 +99,27 @@ class GameManager {
    }
   }
   
+  void checkPlayerEnemyCollision() {
+    for(int i = 0; i < numberOfEnemies; i++) {
+      PVector enemyPos = new PVector();
+      enemyPos.x = enemies[i].getPosition("x");
+      enemyPos.y = enemies[i].getPosition("y");
+      float enemySize = enemies[i].getSize();
+      
+      PVector playerPos = new PVector();
+      playerPos.x = player.getPosition("x");
+      playerPos.y = player.getPosition("y");
+      float playerSize = player.getSize();
+      
+      boolean collided = checkCollision(enemyPos, enemySize, playerPos, playerSize);
+      
+      if(collided) {
+         player.destroy();
+         enemies[i].destroy();
+      }
+    }
+  }
+  
   boolean checkCollision(PVector pos1, float size1, PVector pos2, float size2) {
     float maxDistance = size1 + size2;
     
@@ -119,12 +140,5 @@ class GameManager {
   void scorePoint() {
     text("Score " + points, 0, 20); 
   }
-  
-  //void getBulletPosition() {
-  //  Testkod för att hämta positionen för enemy bullets. Funkar! :)
-  //  if(enemy1.bullets[0] != null) {
-  //    print(enemy1.bullets[0].getPosition());
-  //  }
-  //}
 
 }
