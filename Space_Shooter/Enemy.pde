@@ -40,7 +40,7 @@ class Enemy extends Ship{
   
   void setEnemyType(int enemyType) {
     if(enemyType == 0) {
-      hitPoints = 3;
+      hitPoints = 6;
       
       velocity.x = 0;
       velocity.y = 1;
@@ -58,7 +58,7 @@ class Enemy extends Ship{
       amountOfBullets = 0;
     }
     if(enemyType == 2) {
-        hitPoints = 5;
+        hitPoints = 10;
         
         velocity.x = 1;
         velocity.y = 1;
@@ -91,8 +91,8 @@ class Enemy extends Ship{
                         position.x + size/2, position.y - size/2);
     }
     if(enemyTypeSelected == 2) {
-      ellipse(position.x, position.y, size/5, size);  
-      ellipse(position.x, position.y, size, size/5); 
+      ellipse(position.x, position.y, size/2, size * 1.5);  
+      ellipse(position.x, position.y, size * 1.5, size/2); 
     }
   }
   

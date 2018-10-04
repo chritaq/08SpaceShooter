@@ -5,6 +5,8 @@ class Player extends Ship {
 
   public Player(PVector newPos) {
     super (newPos, new PVector());
+    firingRate = 5;
+    bulletSpeed = 10;
   }
 
   void update() {
