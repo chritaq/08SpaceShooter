@@ -20,6 +20,10 @@ class Player extends Ship {
 	float moveX = getAxisRaw("Horizontal") * speed;
 	position.x = position.x + moveX;
 	position.y = position.y + moveY;
+	//boolean slow = getButton("z");
+	//if (slow) {
+	//	speed = speed/2;
+	//}
 
 	if (position.x < 0) {
 		position.x = 0;
@@ -36,7 +40,6 @@ class Player extends Ship {
   }
 
   void playerShoots() {
-  	boolean slow = getButton("z") ;
 	boolean shoot = getButton("x");		 
   	
   	if (shoot){
