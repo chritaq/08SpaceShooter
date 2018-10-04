@@ -19,7 +19,6 @@ class Enemy extends Ship{
     if(alive) {
       moveEnemy();
       shoot();
-      //checkOutOfBounds();
     }
     super.updateBullets();
   }
@@ -46,9 +45,9 @@ class Enemy extends Ship{
       velocity.x = 0;
       velocity.y = 1;
       
-      amountOfBullets = 3;
-      firingRate = 10;
-      timeBeforeShoot = 1000;
+      amountOfBullets = 50;
+      firingRate = 70;
+      timeBeforeShoot = 0;
     }
     if(enemyType == 1) {
       hitPoints = 1;

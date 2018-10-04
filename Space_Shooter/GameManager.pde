@@ -2,7 +2,7 @@ class GameManager {
   //Enemy enemy1;
   Enemy[] enemies;
   
-  int enemiesToSpawn = 10;
+  int enemiesToSpawn = 30;
   int enemiesDead = 0;
   int timeCheckForSpawn;
   int timeIntervalForSpawn = 500;
@@ -23,6 +23,7 @@ class GameManager {
       updateEnemies();
     }
     scorePoint();
+    checkStageClear();
   }
   
   void randomEnemySpawner() {
@@ -141,12 +142,13 @@ class GameManager {
     }
   }
   
-  boolean stageClear() {
+  void checkStageClear() {
     if(enemiesDead == enemiesToSpawn) {
-      return true;
+      text ("You Win", width/2 - textWidth("You Win")/2 , height/2);
+      //return true;
     }
     else {
-      return false;
+      //return false;
     }
   }
   
