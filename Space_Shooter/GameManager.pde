@@ -145,10 +145,6 @@ class GameManager {
   void checkStageClear() {
     if(enemiesDead == enemiesToSpawn) {
       text ("You Win", width/2 - textWidth("You Win")/2 , height/2);
-      //return true;
-    }
-    else {
-      //return false;
     }
   }
   
