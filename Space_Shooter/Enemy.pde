@@ -2,7 +2,7 @@ class Enemy extends Ship{
   int hitPoints;
   int enemyTypeSelected;
   float startPosX;
-  float colourDarkness = 255;
+  float colourDamaged = 0;
   boolean specialMovement = false;
 
   Enemy(PVector newPos, PVector newVel) {
@@ -24,7 +24,7 @@ class Enemy extends Ship{
   }
   
   void moveEnemy() {
-    fill (colourDarkness,10,10);
+    fill (255,colourDamaged,colourDamaged);
     if(specialMovement == true) {
       updateMovementPattern();
     }
@@ -97,7 +97,7 @@ class Enemy extends Ship{
   }
   
   int loseHealth() {
-    colourDarkness -= 50;
+    colourDamaged += 255/hitPoints;
     if(hitPoints > 1) {
       hitPoints--;
       return 0;

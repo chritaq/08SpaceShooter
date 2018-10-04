@@ -8,6 +8,7 @@ class Bullet extends GameObject {
 	void update() {
     if(alive) {
       super.updatePosWithVel();
+      fill(255, 0, 0);
       ellipse(position.x, position.y, size, size);
     }
 		
