@@ -7,7 +7,7 @@ class Ship extends GameObject {
   int bulletsFired = 0;
   float bulletSpeed = 5;
   
-
+  boolean bulletFix = false;
   
   Ship(PVector newPos, PVector newVel) {
     super(newPos, newVel);
@@ -44,13 +44,14 @@ class Ship extends GameObject {
         bulletsFired++;
         if(playerOrEnemy == "Player" && bulletsFired == amountOfBullets) {
           bulletsFired = 0;
+          bulletFix = true;
         }
     }
   }
   
   
   void updateBullets() {
-    for(int i = 0; i < bulletsFired; i++) {
+    for(int i = 0; (i < bulletsFired && bulletFix == false) || (i < amountOfBullets && bulletFix == true); i++) {
       bullets[i].update();
     }
   }

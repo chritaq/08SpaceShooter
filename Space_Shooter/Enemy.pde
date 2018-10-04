@@ -1,4 +1,5 @@
 class Enemy extends Ship{
+  int hitPoints;
 
   Enemy(PVector newPos, PVector newVel, int newAmountOfBullets) {
     super(newPos, newVel, newAmountOfBullets);
@@ -24,6 +25,24 @@ class Enemy extends Ship{
   void shoot() {
     if(bulletsFired < amountOfBullets) {
       super.createBullets("DOWN", "enemy");
+    }
+  }
+  
+  void setEnemyType(int enemyType) {
+    if(enemyType == 0) {
+      hitPoints = 3;
+    }
+    if(enemyType == 1) {
+      hitPoints = 5;
+    }
+  }
+  
+  void loseHealth() {
+    if(hitPoints > 1) {
+      hitPoints--;
+    }
+    else {
+      this.destroy("Enemy");
     }
   }
   

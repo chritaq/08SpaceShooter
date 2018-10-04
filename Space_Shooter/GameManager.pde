@@ -29,6 +29,7 @@ class GameManager {
     if(millis() > timeCheck + timeInterval && numberOfEnemies < enemiesToKill) {
       timeCheck = millis();
       enemies[numberOfEnemies] = new Enemy(new PVector(random(0, width), 0), new PVector(0, 1), 9);
+      enemies[numberOfEnemies].setEnemyType(0);
       numberOfEnemies++;
       if(startSpawn == false) {
         startSpawn = true;
@@ -63,7 +64,7 @@ class GameManager {
          boolean collided = checkCollision(bulletPos, bulletSize, enemyPos, enemySize);
          
          if(collided) {
-           enemies[j].destroy("Enemy");
+           enemies[j].loseHealth();
            player.bullets[i].destroy("Player");
            points++;
          }
