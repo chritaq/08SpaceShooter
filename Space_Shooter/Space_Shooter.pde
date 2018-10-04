@@ -18,6 +18,5 @@ void draw() {
  else {
    text ("Game Over", width/2 - textWidth("Game Over")/2 , height/2);
  }
-
   
 }
