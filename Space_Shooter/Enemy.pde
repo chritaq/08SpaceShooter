@@ -1,15 +1,18 @@
 class Enemy extends Ship{
   int hitPoints;
   int enemyTypeSelected;
+  float startPosX;
   float colourDarkness = 255;
   boolean specialMovement = false;
 
   Enemy(PVector newPos, PVector newVel) {
     super(newPos, newVel);
+    startPosX = position.x;
   }
   
   Enemy(PVector newPos, PVector newVel, float newSize) {
     super(newPos, newVel, newSize);
+    startPosX = position.x;
   }
   
   void update() {
@@ -70,7 +73,7 @@ class Enemy extends Ship{
   
   void updateMovementPattern() {
     if(enemyTypeSelected == 2) {
-      if(position.x > width || position.x < 0) {
+      if(position.x > startPosX + size*2 || position.x < startPosX - size*2) {
         velocity.x = -velocity.x;
       }
       
