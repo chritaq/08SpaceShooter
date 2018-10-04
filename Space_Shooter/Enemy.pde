@@ -29,7 +29,7 @@ class Enemy extends Ship{
       updateMovementPattern();
     }
     super.updatePosWithVel();
-    ellipse(position.x, position.y, size, size);
+    drawEnemyType();
   }
   
   void shoot() {
@@ -77,6 +77,22 @@ class Enemy extends Ship{
         velocity.x = -velocity.x;
       }
       
+    }
+  }
+  
+  void drawEnemyType() {
+    if(enemyTypeSelected == 0) {
+      ellipse(position.x, position.y, size, size);  
+    }
+    if(enemyTypeSelected == 1) {
+      //ellipse(position.x, position.y, size, size);
+      triangle          (position.x - size/2, position.y - size/2, 
+                        position.x, position.y + size/2, 
+                        position.x + size/2, position.y - size/2);
+    }
+    if(enemyTypeSelected == 2) {
+      ellipse(position.x, position.y, size/5, size);  
+      ellipse(position.x, position.y, size, size/5); 
     }
   }
   
