@@ -40,7 +40,7 @@ class Enemy extends Ship{
   
   void setEnemyType(int enemyType) {
     if(enemyType == 0) {
-      hitPoints = 6;
+      hitPoints = 5;
       
       velocity.x = 0;
       velocity.y = 1;
@@ -58,7 +58,7 @@ class Enemy extends Ship{
       amountOfBullets = 0;
     }
     if(enemyType == 2) {
-        hitPoints = 10;
+        hitPoints = 7;
         
         velocity.x = 1.5;
         velocity.y = 1;
