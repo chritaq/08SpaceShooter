@@ -38,10 +38,10 @@ void keyPressed() {
       moveRight = true;
     }
   }
-  if(key == 'x') {
+  if(key == 'x' ||key ==  'X') {
     shoot = true;
   }
-  if(key == 'z') {
+  if(key == 'z' ||key == 'Z') {
     slowMove = true;
   }
   
@@ -63,11 +63,11 @@ void keyReleased() {
     }
   }
   
-  if(key == 'z') {
+  if(key == 'z'||key ==  'Z') {
     slowMove = false;
   }
   
-  if(key == 'x') {
+  if(key == 'x'||key ==  'X') {
     shoot = false;
   }
 }
@@ -93,12 +93,12 @@ float getAxisRaw(String axis) {
 }
 
 boolean getButton(String button) {
-  if(button == "z") {
+  if(button == "z"||key ==  'Z') {
     if (slowMove) {
       return true;
     }
   }
-  if(button == "x") {
+  if(button == "x"||key ==  'X') {
     if (shoot) {
       return true;
     }

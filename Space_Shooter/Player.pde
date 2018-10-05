@@ -58,8 +58,7 @@ class Player extends Ship {
 
   void createPlayer() {
   	fill(79,156,228);
-	ellipse(position.x, position.y, size, size);
-	fill (255,10,10);
+  	ellipse(position.x, position.y, size, size);
   }
 
 }
