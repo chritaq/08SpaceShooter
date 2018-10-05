@@ -1,5 +1,4 @@
 class GameManager {
-  //Enemy enemy1;
   Enemy[] enemies;
   
   int enemiesToSpawn = 30;
@@ -149,6 +148,7 @@ class GameManager {
   }
   
   void scorePoint() {
+    fill(255,10,10);
     text("Score " + points, 0, 20); 
   }
 

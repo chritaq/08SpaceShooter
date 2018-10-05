@@ -21,12 +21,12 @@ class Player extends Ship {
   
   void playerMovement() {
   	PVector move = new PVector();
-	move.y = getAxisRaw("Vertical") * speed;
-	move.x = getAxisRaw("Horizontal") * speed;
-	position.x = position.x + move.x;
-	position.y = position.y + move.y;
-	move.normalize();
-	boolean slow = getButton("z");
+  	move.y = getAxisRaw("Vertical") * speed;
+  	move.x = getAxisRaw("Horizontal") * speed;
+  	position.x = position.x + move.x;
+  	position.y = position.y + move.y;
+  	move.normalize();
+  	boolean slow = getButton("z");
 	if (slow) {
 		speed = slowSpeed;
 	}
